@@ -3,139 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUY CHẾ THƯỞNG CÔNG TY 2026</title>
+    <title>QUY CHẾ THƯỞNG CÔNG TY 2026 - FULL</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: red;
-            --secondary-color: red;
-            --accent-color: #e74c3c;
-            --bg-light: #f4f7f6;
-            --text-dark: #333;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --primary-red: #c62828;
+            --dark-red: #8e0000;
+            --light-bg: #fdfdfd;
+            --accent-gold: #fbc02d;
+            --text-main: #333;
+            --table-border: #e0e0e0;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: var(--text-main);
             line-height: 1.6;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
             margin: 0;
             padding: 20px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         header {
-            text-align: center;
-            border-bottom: 3px solid var(--secondary-color);
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-        }
-
-        .document-code {
-            font-weight: bold;
-            color: var(--secondary-color);
-            float: left;
-        }
-
-        .document-date {
-            font-style: italic;
-            float: right;
-        }
-
-        h1 {
-            clear: both;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            font-size: 24px;
-            margin-top: 20px;
-        }
-
-        .sub-title {
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+        }
+
+        header h1 { margin: 0; font-size: 26px; text-transform: uppercase; }
+        .meta-info { display: flex; justify-content: space-between; padding: 10px 40px; background: #eee; font-size: 13px; font-weight: bold; }
+
+        section { padding: 30px 40px; }
+        .banner-red {
+            background: var(--primary-red);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: bold;
             display: flex;
             align-items: center;
+            text-transform: uppercase;
         }
+        .banner-red i { margin-right: 15px; }
 
-        h2 i { margin-right: 10px; }
+        h3 { color: var(--dark-red); border-left: 4px solid var(--primary-red); padding-left: 10px; margin-top: 25px; }
 
-        h3 {
-            color: var(--secondary-color);
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-            margin-top: 25px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f8f9fa;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        tr:nth-child(even) { background-color: #f2f2f2; }
-
-        tr:hover { background-color: #e9f2fb; }
-
-        .highlight-box {
-            background: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #666;
-            font-style: italic;
-        }
-
-        .footer-note {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            font-size: 14px;
-        }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+        th { background: #f8f8f8; color: var(--dark-red); border: 1px solid var(--table-border); padding: 12px; text-align: left; }
+        td { border: 1px solid var(--table-border); padding: 10px 12px; }
+        tr:nth-child(even) { background: #fffafa; }
+        
+        .highlight-red { color: var(--primary-red); font-weight: bold; }
+        .note-box { background: #fff9c4; border-left: 5px solid var(--accent-gold); padding: 15px; margin: 20px 0; border-radius: 4px; }
+        
+        .kpi-table th { background: var(--primary-red); color: white; }
+        
+        .footer-sign { margin-top: 40px; padding: 20px 40px; border-top: 2px solid #eee; display: flex; justify-content: flex-end; text-align: center; }
+        .signature-box { width: 300px; }
 
         @media (max-width: 768px) {
-            .container { padding: 20px; }
-            .document-code, .document-date { float: none; display: block; text-align: center; }
-            table { font-size: 14px; display: block; overflow-x: auto; }
+            section { padding: 15px; }
+            .meta-info { flex-direction: column; text-align: center; }
+            table { display: block; overflow-x: auto; }
         }
     </style>
 </head>
@@ -143,141 +84,169 @@
 
 <div class="container">
     <header>
-        <span class="document-code">Mã: QCT01/1/2026</span>
-        <span class="document-date">Tp. Hồ Chí Minh – Ngày 01 tháng 01 năm 2026</span>
-        <h1>Quy Chế Thưởng Ngoài Hệ Thống</h1>
-        <div class="sub-title">KPI – HOA HỒNG – THƯỞNG KHÁC (ÁP DỤNG CHO BỘ PHẬN KINH DOANH)</div>
+        <h1>QUY CHẾ THƯỞNG NGOÀI HỆ THỐNG</h1>
+        <p>KPI – HOA HỒNG – THƯỞNG KHÁC</p>
     </header>
 
-    <section>
-        <h2><i class="fas fa-user-plus"></i> PHẦN I. CHÍNH SÁCH THƯỞNG PHÁT TRIỂN KHÁCH HÀNG & SẢN PHẨM MỚI</h2>
-        <p>Áp dụng cho việc mở mới khách hàng và phát triển sản phẩm (SKU) mới vào điểm bán hiện hữu.</p>
-
-        <h3>1. Nhóm Khách Hàng Nhà Thuốc</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Hạng mục phát triển</th>
-                    <th>Điều kiện doanh số (Min)</th>
-                    <th>Mức thưởng</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mở mới Nhà thuốc (Nhóm Thuốc)</td>
-                    <td>Đơn hàng từ 3.000.000 VNĐ</td>
-                    <td><strong>200.000 VNĐ</strong> / Nhà thuốc</td>
-                </tr>
-                <tr>
-                    <td>Giới thiệu sản phẩm THUỐC mới</td>
-                    <td>Đơn hàng từ 1.000.000 VNĐ/1 SKU</td>
-                    <td><strong>100.000 VNĐ</strong> / 1 SKU</td>
-                </tr>
-                <tr>
-                    <td>Mở mới Nhà thuốc (Nhóm Phi Thuốc)</td>
-                    <td>Đơn hàng từ 3.000.000 VNĐ</td>
-                    <td><strong>400.000 VNĐ</strong> / Nhà thuốc</td>
-                </tr>
-                <tr>
-                    <td>Giới thiệu sản phẩm UVS mới</td>
-                    <td>Đơn hàng từ 1.000.000 VNĐ/1 SKU</td>
-                    <td><strong>200.000 VNĐ</strong> / 1 SKU</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>2. Nhóm Nhà Phân Phối (NPP) & Chuỗi</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Hạng mục phát triển</th>
-                    <th>Điều kiện doanh số (Min)</th>
-                    <th>Mức thưởng</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mở mới NPP (Nhóm Phi Thuốc)</td>
-                    <td>Đơn hàng từ 8.000.000 VNĐ</td>
-                    <td><strong>1.000.000 VNĐ</strong> / NPP</td>
-                </tr>
-                <tr>
-                    <td>Phát triển SKU mới vào NPP hiện tại</td>
-                    <td>Đơn hàng từ 2.000.000 VNĐ/1 SKU</td>
-                    <td><strong>300.000 VNĐ</strong> / 1 SKU</td>
-                </tr>
-                <tr>
-                    <td>Mở mới Chuỗi Nhà Thuốc</td>
-                    <td>Đơn hàng từ 5.000.000 VNĐ</td>
-                    <td><strong>800.000 VNĐ</strong> / Chuỗi</td>
-                </tr>
-                <tr>
-                    <td>Mở mới NT trong Phòng Khám</td>
-                    <td>Đơn hàng từ 6.000.000 VNĐ</td>
-                    <td><strong>800.000 VNĐ</strong> / Khách hàng</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="highlight-box">
-            <strong><i class="fas fa-info-circle"></i> Quy định xét thưởng:</strong>
-            <ul>
-                <li>Cộng dồn tối đa 02 đơn hàng trong vòng 20 ngày để đạt min doanh số.</li>
-                <li>Thưởng chi trả tại thời điểm đơn hàng cuối cùng đạt chuẩn.</li>
-                <li>Chi nhánh cùng pháp nhân không được tính là khách hàng mới.</li>
-            </ul>
-        </div>
-    </section>
+    <div class="meta-info">
+        <span>MÃ SỐ: QCT01/1/2026</span>
+        <span>TP. Hồ Chí Minh, Ngày 01 tháng 01 năm 2026</span>
+    </div>
 
     <section>
-        <h2><i class="fas fa-chart-line"></i> PHẦN II. CHÍNH SÁCH HOA HỒNG DOANH SỐ (LŨY KẾ)</h2>
-        <p><strong>Đối tượng:</strong> Khách hàng do nhân viên trực tiếp khai thác.</p>
+        <div class="banner-red"><i class="fas fa-chart-line"></i> PHẦN I. DÀNH CHO BỘ PHẬN KINH DOANH</div>
         
-        <h3>Bảng Tỷ Lệ Hoa Hồng</h3>
+        <h3>1. Thưởng Phát Triển Khách Hàng & SKU Mới</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Mốc Doanh Thu Lũy Kế (Tháng)</th>
-                    <th>Nhóm PHI THUỐC (%)</th>
-                    <th>Nhóm THUỐC (%)</th>
+                    <th>Đối tượng/Hạng mục</th>
+                    <th>Điều kiện (Min)</th>
+                    <th>Mức thưởng</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Từ 2.500.000 VNĐ</td>
-                    <td>2.0%</td>
-                    <td>1.5%</td>
+                    <td>Mở mới Nhà thuốc (Thuốc)</td>
+                    <td>Đơn hàng từ 3.000.000 VNĐ</td>
+                    <td class="highlight-red">200.000 VNĐ/NT</td>
                 </tr>
                 <tr>
-                    <td>Từ 16.000.000 VNĐ</td>
-                    <td>3.5%</td>
-                    <td>1.6%</td>
+                    <td>Mở mới Nhà thuốc (Phi Thuốc)</td>
+                    <td>Đơn hàng từ 3.000.000 VNĐ</td>
+                    <td class="highlight-red">400.000 VNĐ/NT</td>
                 </tr>
                 <tr>
-                    <td>Từ 30.000.000 VNĐ</td>
-                    <td>4.5%</td>
-                    <td>2.0%</td>
+                    <td>Mở mới NPP (Phi Thuốc)</td>
+                    <td>Đơn hàng từ 8.000.000 VNĐ</td>
+                    <td class="highlight-red">1.000.000 VNĐ/NPP</td>
                 </tr>
                 <tr>
-                    <td>Từ 70.000.000 VNĐ</td>
-                    <td>6.0%</td>
-                    <td>3.0%</td>
+                    <td>Mở mới Chuỗi / NT Phòng khám</td>
+                    <td>Đơn hàng từ 5.000.000 VNĐ</td>
+                    <td class="highlight-red">800.000 VNĐ/Đơn vị</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="highlight-box" style="background: #e1f5fe; border-color: #b3e5fc;">
-            <strong><i class="fas fa-exclamation-triangle"></i> Lưu ý quan trọng:</strong>
+        <h3>2. Hoa hồng Doanh số Lũy kế</h3>
+        <p><i>(Tính trên doanh số thực đạt trong tháng)</i></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mốc Doanh Thu</th>
+                    <th>Phi Thuốc (%)</th>
+                    <th>Thuốc (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Từ 2.500.000 VNĐ</td><td>2.0%</td><td>1.5%</td></tr>
+                <tr><td>Từ 70.000.000 VNĐ</td><td class="highlight-red">6.0%</td><td class="highlight-red">3.0%</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <div class="banner-red"><i class="fas fa-users-cog"></i> PHẦN II. ÁP DỤNG CHO KẾ TOÁN – KHO – GIAO NHẬN</div>
+
+        <h3>B.1. Phụ trách Kho Dược (Hỗ trợ chăm sóc KH)</h3>
+        <ul>
+            <li>Tăng trưởng doanh thu 3% - 12%: Thưởng <span class="highlight-red">200.000 VNĐ</span></li>
+            <li>Tăng trưởng trên 13%: Thưởng <span class="highlight-red">500.000 VNĐ</span></li>
+            <li>Thưởng đóng gói:
+                <ul>
+                    <li>Từ đơn 155 - 170: Thưởng <span class="highlight-red">30.000 VNĐ/đơn</span></li>
+                    <li>Từ đơn 171 trở đi: Thưởng <span class="highlight-red">50.000 VNĐ/đơn</span></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>B.2. Bộ phận Giao Nhận</h3>
+        <p>Căn cứ trên số đơn hoàn thành đúng hạn (từ 154 đơn trở đi):</p>
+        <ul>
+            <li>Từ đơn 160 - 170: Thưởng <span class="highlight-red">40.000 VNĐ/đơn</span></li>
+            <li>Từ đơn 171 trở đi: Thưởng <span class="highlight-red">60.000 VNĐ/đơn</span></li>
+        </ul>
+
+        <h3>B.3. Bộ phận Kế Toán</h3>
+        <p>Tính trên tỉ lệ Lợi nhuận/Tổng doanh thu thuần:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tỉ lệ Lợi nhuận</th>
+                    <th>Cấp Quản lý</th>
+                    <th>Cấp Nhân viên</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Từ 6%</td><td>300.000 VNĐ</td><td>200.000 VNĐ</td></tr>
+                <tr><td>Từ 8%</td><td>500.000 VNĐ</td><td>300.000 VNĐ</td></tr>
+                <tr><td>Từ 12%</td><td class="highlight-red">800.000 VNĐ</td><td class="highlight-red">500.000 VNĐ</td></tr>
+            </tbody>
+        </table>
+
+        <h3>B.4. Nhân viên hỗ trợ giao nhận (Nội thành)</h3>
+        <ul>
+            <li>Bán kính < 8km: Trợ cấp <span class="highlight-red">40.000 VNĐ/đơn</span></li>
+            <li>Bán kính < 15km: Trợ cấp <span class="highlight-red">60.000 VNĐ/đơn</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="banner-red"><i class="fas fa-gavel"></i> PHẦN III. QUY CHẾ TÍNH ĐIỂM KPI & KỶ LUẬT</div>
+        <table class="kpi-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Loại Vi Phạm</th>
+                    <th>Chi Tiết</th>
+                    <th>Mức Trừ KPI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Khai báo giao dịch</td>
+                    <td>Không khai báo/sai thông tin khách mới</td>
+                    <td>-5% / lần</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sai sót đơn hàng</td>
+                    <td>Sai chiết khấu, sản lượng trên ERP</td>
+                    <td>-8% / lần</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Quy trình thủ tục</td>
+                    <td>Thiếu chứng từ, sai quy trình KD</td>
+                    <td>-8% / lần</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Báo cáo</td>
+                    <td>Nộp trễ hoặc sai sót quá nhiều (>3 ngày)</td>
+                    <td>-10% tổng điểm</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note-box">
+            <strong><i class="fas fa-exclamation-triangle"></i> LƯU Ý QUAN TRỌNG:</strong>
             <ul>
-                <li>Căn cứ duy nhất: Số liệu báo cáo cuối tháng trên hệ thống ERP.</li>
-                <li>NVKD phải gửi báo cáo giải trình kèm mã khách hàng trước kỳ lương.</li>
-                <li>Trường hợp nộp báo cáo trễ sẽ thanh toán vào kỳ chi trả NCC tiếp theo.</li>
+                <li><strong>Doanh thu KPI:</strong> Tính trên doanh thu gộp (bao gồm cả công nợ).</li>
+                <li><strong>Thời hạn:</strong> Báo cáo phải hoàn thành trước ngày 5 hàng tháng.</li>
+                <li><strong>Thanh toán:</strong> Các khoản thưởng được chi trả vào kỳ lương ngày 5.</li>
             </ul>
         </div>
     </section>
 
-    <div class="footer-note">
-        <p class="note">* Quy chế này được áp dụng nhằm khuyến khích sự phát triển thị trường và đảm bảo tính công bằng trong thu nhập của đội ngũ kinh doanh.</p>
+    <div class="footer-sign">
+        <div class="signature-box">
+            <p><strong>DUYỆT LÃNH ĐẠO CÔNG TY</strong></p>
+            <p style="margin-top: 60px;">(Đã ký)</p>
+            <p><strong>MINH TRIẾT</strong></p>
+        </div>
     </div>
 </div>
 
