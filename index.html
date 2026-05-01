@@ -1,569 +1,987 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quy Chế Thưởng & KPI 2026</title>
-    <style>
-        :root {
-            --primary-color: #0056b3;
-            --secondary-color: #00a8cc;
-            --accent-color: #ff9f43;
-            --danger-color: #ff4757;
-            --text-color: #333;
-            --bg-light: #f4f7f6;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chính Sách Thưởng Ngoài KPI</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-        }
+<style>
+:root {
+  --midnight: #0a1628;
+  --navy: #1a2942;
+  --gold: #c9a96e;
+  --gold-bright: #e8c25f;
+  --gold-deep: #a08249;
+  --brand-red: #e30613;
+  --brand-red-bright: #ff2a3a;
+  --brand-red-deep: #b8050f;
+  --cream: #faf6ec;
+  --warm-white: #fdfbf5;
+  --paper: #ffffff;
+  --charcoal: #2a2a2a;
+  --text: #3a3530;
+  --text-soft: #6b655d;
+  --border: #e6dcc4;
+  --shadow: rgba(10, 22, 40, 0.08);
+}
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
-        .meta-info {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
+.hidden { display: none !important; }
 
-        /* Navigation */
-        nav {
-            background: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-        }
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 75vh;
+  background: linear-gradient(135deg, var(--midnight) 0%, var(--navy) 50%, var(--midnight) 100%);
+  color: var(--warm-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(232, 194, 95, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(227, 6, 19, 0.10) 0%, transparent 45%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(232, 194, 95, 0.018) 60px, rgba(232, 194, 95, 0.018) 61px);
+  pointer-events: none;
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px;
-            flex-wrap: wrap;
-        }
+nav {
+  position: relative; z-index: 10;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.18);
+}
+.brand {
+  display: flex; align-items: center;
+}
+.brand-name {
+  color: var(--brand-red-bright);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  font-size: 26px;
+  text-shadow: 0 0 24px rgba(255, 42, 58, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Playfair Display', serif;
+}
+.brand-mark {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--gold-bright);
+  transform: rotate(45deg);
+  margin: 0 16px;
+  box-shadow: 0 0 8px rgba(232, 194, 95, 0.6);
+}
+.brand-tail {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+.nav-admin {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 9px 22px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.nav-admin:hover { background: var(--gold); color: var(--midnight); letter-spacing: 0.2em; }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+.hero-content {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  position: relative;
+  z-index: 5;
+}
+.ornament-top, .ornament-bottom {
+  width: 240px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 12px 0;
+  opacity: 0;
+  animation: fadeUp 1.4s 0.1s forwards;
+}
+.ornament-top svg, .ornament-bottom svg { width: 100%; height: 100%; }
 
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--gold-bright);
+  letter-spacing: 0.25em;
+  margin: 4px 0;
+  opacity: 0;
+  animation: fadeUp 1.2s 0.3s forwards;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6.5vw, 80px);
+  font-weight: 800;
+  color: var(--warm-white);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 18px 0;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 1.2s 0.5s forwards;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.hero-title .accent { color: var(--gold-bright); font-style: italic; text-transform: none; font-weight: 700; }
+.hero-subtitle {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(253, 251, 245, 0.78);
+  max-width: 640px;
+  letter-spacing: 0.06em;
+  margin-top: 14px;
+  opacity: 0;
+  animation: fadeUp 1.2s 0.7s forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
+.hero-corner {
+  position: absolute;
+  width: 80px; height: 80px;
+  border: 1px solid var(--gold);
+  opacity: 0.4;
+  z-index: 2;
+}
+.hero-corner.tl { top: 80px; left: 32px; border-right: none; border-bottom: none; }
+.hero-corner.tr { top: 80px; right: 32px; border-left: none; border-bottom: none; }
+.hero-corner.bl { bottom: 32px; left: 32px; border-right: none; border-top: none; }
+.hero-corner.br { bottom: 32px; right: 32px; border-left: none; border-top: none; }
 
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+/* CONTENT */
+.content-section {
+  background: var(--cream);
+  padding: 90px 24px 110px;
+  background-image: radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.06) 0%, transparent 50%);
+}
 
-        /* Sections */
-        section {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-        }
+.policy-paper {
+  max-width: 940px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 80px 80px 90px;
+  box-shadow: 0 4px 24px rgba(10, 22, 40, 0.08), 0 1px 3px rgba(10, 22, 40, 0.04);
+  position: relative;
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--brand-red);
+}
+.policy-paper::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(201, 169, 110, 0.025) 32px, rgba(201, 169, 110, 0.025) 33px);
+  pointer-events: none;
+}
+.policy-paper::after {
+  content: '';
+  position: absolute;
+  top: 24px; left: 24px; right: 24px; bottom: 24px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+  opacity: 0.4;
+}
 
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-        }
+.policy-meta {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-soft);
+  letter-spacing: 0.18em;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+  position: relative; z-index: 1;
+}
+.policy-meta::before, .policy-meta::after {
+  content: '◆'; color: var(--gold);
+  margin: 0 14px; font-size: 8px; vertical-align: middle;
+}
 
-        h3 {
-            color: var(--text-color);
-            margin: 25px 0 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-        }
+.policy-content {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--charcoal);
+  position: relative;
+  z-index: 1;
+  min-height: 240px;
+}
 
-        h3::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 25px;
-            background-color: var(--accent-color);
-            margin-right: 10px;
-            border-radius: 4px;
-        }
+.policy-content h1, .policy-content h2, .policy-content h3, .policy-content h4 {
+  font-family: 'Playfair Display', serif;
+  margin: 32px 0 16px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+/* Default heading color — only when user hasn't set their own */
+.policy-content h1:not([style*="color"]),
+.policy-content h2:not([style*="color"]),
+.policy-content h3:not([style*="color"]),
+.policy-content h4:not([style*="color"]) {
+  color: var(--midnight);
+}
+.policy-content h1 { font-size: 32px; }
+.policy-content h2 { font-size: 26px; }
+.policy-content h3 { font-size: 21px; }
+.policy-content h4 { font-size: 18px; }
+.policy-content p { margin: 14px 0; }
+.policy-content ul, .policy-content ol { margin: 14px 0 14px 28px; }
+.policy-content li { margin: 8px 0; }
+.policy-content blockquote {
+  border-left: 4px solid var(--gold);
+  padding: 14px 26px;
+  margin: 24px 0;
+  background: var(--cream);
+  font-style: italic;
+}
+.policy-content blockquote:not([style*="color"]) { color: var(--text); }
+.policy-content a:not([style*="color"]) { color: var(--brand-red-deep); }
+.policy-content a { text-decoration: underline; }
+.policy-content img { max-width: 100%; height: auto; margin: 16px 0; border-radius: 4px; }
+/* Strong: keep bold but inherit color from parent (so colored spans containing <strong> work) */
+.policy-content strong { font-weight: 700; }
+.policy-content pre, .policy-content code {
+  background: #f5f1e8;
+  padding: 2px 8px;
+  font-family: 'Courier New', monospace;
+  border-radius: 3px;
+}
+.policy-content hr { border: none; height: 1px; background: var(--border); margin: 28px 0; }
 
-        /* Tables */
-        .table-responsive {
-            overflow-x: auto;
-        }
+/* TABLES IN PUBLIC VIEW */
+.policy-content table {
+  border-collapse: collapse;
+  width: 100% !important;
+  margin: 22px 0;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(10, 22, 40, 0.05);
+}
+.policy-content table:not([style*="background"]) { background: var(--paper); }
+.policy-content table td,
+.policy-content table th {
+  border: 1px solid rgba(201, 169, 110, 0.55);
+  padding: 12px 16px;
+  vertical-align: top;
+  text-align: left;
+}
+.policy-content table th,
+.policy-content table thead td {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-color: var(--midnight);
+}
+.policy-content table th:not([style*="background"]),
+.policy-content table thead td:not([style*="background"]) {
+  background: linear-gradient(135deg, var(--midnight), var(--navy));
+}
+.policy-content table th:not([style*="color"]),
+.policy-content table thead td:not([style*="color"]) {
+  color: var(--gold-bright);
+}
+.policy-content table tbody tr:nth-child(even) td:not([style*="background"]) { background: #faf6ec; }
+.policy-content table tbody tr:hover td:not([style*="background"]) { background: #f5ecd6; transition: background 0.2s; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            min-width: 600px;
-        }
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-soft);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+}
+.empty-state i { color: var(--gold); font-size: 32px; display: block; margin-bottom: 16px; }
+.loading {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-soft);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
 
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+/* FOOTER */
+footer {
+  background: var(--midnight);
+  color: rgba(253, 251, 245, 0.55);
+  text-align: center;
+  padding: 50px 24px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+footer .gold-line { width: 80px; height: 1px; background: var(--gold); margin: 0 auto 22px; }
+footer .brand-mini {
+  color: var(--brand-red-bright);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-style: normal;
+}
 
-        th {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
+/* MODAL */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
+.modal-content {
+  background: var(--paper);
+  padding: 52px 44px 40px;
+  max-width: 440px; width: 100%;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--brand-red);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.5);
+  animation: slideUp 0.45s cubic-bezier(.16,.84,.44,1);
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal-icon { text-align: center; font-size: 38px; color: var(--brand-red); margin-bottom: 16px; }
+.modal-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: var(--midnight);
+  margin-bottom: 6px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.modal-subtitle {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+}
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--cream);
+  color: var(--charcoal);
+  transition: all 0.2s;
+  outline: none;
+  letter-spacing: 0.05em;
+}
+.input-field:focus {
+  border-color: var(--brand-red);
+  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.12);
+}
 
-        tr:hover {
-            background-color: #e9ecef;
-        }
+.modal-actions { display: flex; gap: 12px; margin-top: 20px; }
+.btn {
+  flex: 1;
+  padding: 12px 22px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.25s ease;
+}
+.btn-primary { background: var(--midnight); color: var(--gold-bright); border-color: var(--midnight); }
+.btn-primary:hover { background: var(--brand-red); color: var(--warm-white); border-color: var(--brand-red); }
+.btn-secondary { background: transparent; color: var(--text-soft); border-color: var(--border); }
+.btn-secondary:hover { border-color: var(--text-soft); color: var(--charcoal); }
+.error-msg {
+  color: #c44545; font-size: 13px;
+  margin-top: 12px; text-align: center;
+  font-style: italic; min-height: 18px;
+}
 
-        .money {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+/* ADMIN VIEW */
+#adminView { min-height: 100vh; background: var(--cream); }
 
-        /* Cards Grid for Bonuses */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
+.admin-header {
+  background: linear-gradient(135deg, var(--midnight), var(--navy));
+  color: var(--warm-white);
+  padding: 26px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  border-bottom: 3px solid var(--brand-red);
+  position: relative;
+}
+.admin-header::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(232, 194, 95, 0.08), transparent 60%);
+  pointer-events: none;
+}
+.admin-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  position: relative;
+  display: flex; align-items: center; gap: 14px;
+  color: var(--gold);
+}
+.admin-header h1 .brand-name { font-size: 24px; }
+.admin-header h1 .gold-italic { color: var(--gold-bright); font-style: italic; }
+.admin-header .actions { display: flex; gap: 12px; position: relative; }
+.admin-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+.admin-btn:hover { background: var(--gold); color: var(--midnight); }
 
-        .card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+.admin-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+.admin-info {
+  background: var(--paper);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--brand-red);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.admin-info h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--midnight);
+  font-size: 19px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.admin-info p { color: var(--text-soft); font-size: 14px; line-height: 1.75; }
+.admin-info .tip {
+  display: inline-block;
+  background: #fff5f5;
+  color: var(--brand-red-deep);
+  padding: 1px 10px;
+  font-weight: 500;
+  border-radius: 3px;
+  margin: 0 3px;
+  font-size: 13px;
+  border: 1px solid #ffd9dc;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--secondary-color);
-        }
+.editor-container {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px var(--shadow);
+  overflow: hidden;
+  min-height: 200px;
+}
+.editor-loading {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-soft);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+}
 
-        .card-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #444;
-        }
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow);
+  flex-wrap: wrap;
+}
+.save-btn {
+  background: var(--brand-red);
+  color: var(--warm-white);
+  border: 2px solid var(--brand-red);
+  padding: 14px 36px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.save-btn:hover {
+  background: var(--brand-red-deep);
+  border-color: var(--brand-red-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(227, 6, 19, 0.35);
+}
+.save-btn:active { transform: translateY(0); }
+.save-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.save-status { color: var(--text-soft); font-size: 14px; font-style: italic; }
+.save-status.success { color: #2d7a3e; font-style: normal; font-weight: 500; }
+.save-status.error { color: #c44545; font-style: normal; font-weight: 500; }
 
-        .card-reward {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+.tox-tinymce { border: none !important; }
+.tox .tox-toolbar__primary { background: var(--cream) !important; border-bottom: 1px solid var(--border) !important; }
+.tox-notifications-container { display: none !important; } /* Hide TinyMCE upgrade banner */
+.tox-statusbar__branding { display: none !important; }
 
-        .card-condition {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 10px;
-        }
-        .badge-drug { background-color: #28a745; }
-        .badge-nondrug { background-color: #17a2b8; }
-
-        /* Notes & Alert Boxes */
-        .note-box {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .alert-box {
-            background-color: #f8d7da;
-            border-left: 5px solid var(--danger-color);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            color: #721c24;
-        }
-
-        /* KPI Warning Table Specifics */
-        .kpi-table th {
-            background-color: var(--danger-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        .signature {
-            margin-top: 30px;
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            nav ul { flex-direction: column; text-align: center; }
-            nav ul li { margin: 10px 0; }
-        }
-    </style>
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .brand-name { font-size: 18px; letter-spacing: 0.18em; }
+  .brand-tail { font-size: 13px; }
+  .brand-mark { margin: 0 10px; }
+  .nav-admin { padding: 7px 14px; font-size: 11px; }
+  .hero-content { padding: 50px 20px; }
+  .hero-corner { display: none; }
+  .ornament-top, .ornament-bottom { width: 180px; }
+  .content-section { padding: 50px 16px 70px; }
+  .policy-paper { padding: 40px 24px 50px; }
+  .policy-paper::after { top: 12px; left: 12px; right: 12px; bottom: 12px; }
+  .admin-header { padding: 20px 16px; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .admin-header h1 { font-size: 18px; }
+  .admin-header h1 .brand-name { font-size: 18px; }
+  .admin-header .actions { width: 100%; }
+  .admin-btn { flex: 1; padding: 9px 12px; font-size: 11px; }
+  .admin-main { padding: 20px 12px; }
+  .admin-actions { flex-direction: column; align-items: stretch; }
+  .save-btn { width: 100%; justify-content: center; padding: 14px 20px; }
+  .modal-content { padding: 36px 24px; }
+  .modal-actions { flex-direction: column; }
+  .policy-content table { font-size: 13px; }
+  .policy-content table td, .policy-content table th { padding: 8px; }
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>QUY CHẾ THƯỞNG & HOA HỒNG</h1>
-        <p>Áp dụng cho Bộ phận Kinh doanh & Khối hỗ trợ</p>
-        <div class="meta-info">
-            QCT01/1/2026 | Hiệu lực: 01/01/2026 | KV: TP. Hồ Chí Minh
-        </div>
-    </header>
+<!-- PUBLIC VIEW -->
+<div id="publicView">
+  <header class="hero">
+    <span class="hero-corner tl"></span>
+    <span class="hero-corner tr"></span>
+    <span class="hero-corner bl"></span>
+    <span class="hero-corner br"></span>
 
     <nav>
-        <ul>
-            <li><a href="#sales">Phát Triển Kinh Doanh</a></li>
-            <li><a href="#commission">Hoa Hồng Doanh Số</a></li>
-            <li><a href="#support">Khối Hỗ Trợ (Kho/Kế Toán/Giao Nhận)</a></li>
-            <li><a href="#kpi">Kỷ Luật & KPI</a></li>
-        </ul>
+      <div class="brand">
+        <span class="brand-name">IDECO</span>
+        <span class="brand-mark"></span>
+        <span class="brand-tail">Corporate</span>
+      </div>
+      <button class="nav-admin" id="openAdminBtn">
+        <i class="fa-solid fa-lock" style="margin-right:6px"></i> Quản trị
+      </button>
     </nav>
 
-    <div class="container">
+    <div class="hero-content">
+      <div class="ornament-top">
+        <svg viewBox="0 0 240 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="95" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="105" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+          <path d="M 113 14 L 120 7 L 127 14 L 120 21 Z" fill="#e8c25f"/>
+          <circle cx="135" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+          <line x1="145" y1="14" x2="240" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+        </svg>
+      </div>
 
-        <section id="sales">
-            <h2>I. Thưởng Phát Triển Khách Hàng & Sản Phẩm Mới áp dụng cho Phụ trách kinh doanh và cả nhân viên công ty nếu có thể tham gia kiêm nhiệm thêm </h2>
-            <p style="margin-bottom: 20px; color: #666;">Áp dụng cho việc mở mới khách hàng và phát triển sản phẩm (SKU) mới vào điểm bán hiện hữu. </p>
+      <p class="hero-eyebrow">— Khen thưởng &amp; Ghi nhận —</p>
 
-            <h3>1.Nhóm Khách Hàng Nhà Thuốc </h3>
-            <div class="grid-cards">
-                <div class="card">
-                    <span class="badge badge-drug">Nhóm Thuốc</span>
-                    <div class="card-title">Mở mới Nhà thuốc</div>
-                    <div class="card-reward">200.000 VNĐ <small>/nhà thuốc</small></div>
-                    <div class="card-condition">Đơn hàng từ 3.000.000 VNĐ</div>
-                </div>
-                <div class="card">
-                    <span class="badge badge-drug">Nhóm Thuốc</span>
-                    <div class="card-title">Giới thiệu sản phẩm mới</div>
-                    <div class="card-reward">100.000 VNĐ <small>/1 SKU</small></div>
-                    <div class="card-condition">Đơn hàng từ 1.000.000 VNĐ/SKU</div>
-                </div>
-                <div class="card">
-                    <span class="badge badge-nondrug">Nhóm Phi Thuốc</span>
-                    <div class="card-title">Mở mới Nhà thuốc</div>
-                    <div class="card-reward">400.000 VNĐ <small>/nhà thuốc</small></div>
-                    <div class="card-condition">Đơn hàng từ 3.000.000 VNĐ</div>
-                </div>
-                <div class="card">
-                    <span class="badge badge-nondrug">Nhóm Phi Thuốc</span>
-                    <div class="card-title">Giới thiệu sản phẩm UVS mới</div>
-                    <div class="card-reward">200.000 VNĐ <small>/1 SKU</small></div>
-                    <div class="card-condition">Đơn hàng từ 1.000.000 VNĐ/SKU</div>
-                </div>
-            </div>
+      <h1 class="hero-title">
+        Chính Sách<br>
+        Thưởng <span class="accent">Ngoài</span> KPI
+      </h1>
 
-            <h3>2. Nhóm Nhà Phân Phối & Chuỗi </h3>
-            <div class="grid-cards">
-                <div class="card">
-                    <div class="card-title">Mở mới NPP (nhóm không phải thuốc)</div>
-                    <div class="card-reward">1.200.000 VNĐ <small>/NPP</small></div>
-                    <div class="card-condition">Đơn hàng từ 10.000.000 VNĐ</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Mở mới Chuỗi Nhà Thuốc</div>
-                    <div class="card-reward">1,000.000 VNĐ <small>/Chuỗi</small></div>
-                    <div class="card-condition">Đơn hàng từ 6.000.000 VNĐ</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">NT trong Phòng Khám</div>
-                    <div class="card-reward">1,000.000 VNĐ <small>/KH</small></div>
-                    <div class="card-condition">Đơn hàng từ 8.000.000 VNĐ</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">SKU mới vào NPP hiện tại</div>
-                    <div class="card-reward">500.000 VNĐ <small>/1 SKU</small></div>
-                    <div class="card-condition">Đơn hàng từ 2.500.000 VNĐ/SKU</div>
-                </div>
-            </div>
+      <p class="hero-subtitle">
+        Tôn vinh những đóng góp xuất sắc vượt ngoài chỉ tiêu, lan tỏa giá trị và động lực trong toàn thể đội ngũ.
+      </p>
 
-            <div class="note-box">
-                <strong>Quy định chung :</strong><br>
-                <ul>
-                    <li><strong>Cộng dồn:</strong> Tối đa 02 đơn hàng trong 20 ngày để đạt doanh số tối thiểu ( nhân viên phải báo cáo cộng dồn trong kỳ_).</li>
-                    <li><strong>Chi nhánh:</strong> Mở chi nhánh mới cùng pháp nhân KHÔNG tính là khách hàng mới.</li>
-                    <li><strong>Thanh toán:</strong> Sau khi có xác nhận từ Kế toán & Quản lý (trước ngày 5 hàng tháng).</li>
-                    <li><strong>Báo cáo:</strong> Kết quả các chỉ số KPI, thưởng phải được báo cáo trình bảy  đầy đủ trước kỳ lược và nộp để duyệt.</li>
-                </ul>
-            </div>
-        </section>
+      <div class="ornament-bottom">
+        <svg viewBox="0 0 240 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="95" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="105" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+          <path d="M 113 14 L 120 7 L 127 14 L 120 21 Z" fill="#e8c25f"/>
+          <circle cx="135" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+          <line x1="145" y1="14" x2="240" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </header>
 
-        <section id="commission">
-            <h2>II. Chính Sách Hoa Hồng Doanh Số (Lũy Kế)</h2>
-            <p>Tính trên doanh số lũy kế thực đạt tại thời điểm trong kỳ tháng. </p>
+  <main class="content-section">
+    <article class="policy-paper">
+      <div class="policy-meta" id="policyMeta">Văn bản chính sách</div>
+      <div class="policy-content" id="contentDisplay">
+        <div class="loading"><i class="fa-solid fa-spinner fa-spin" style="color:#c9a96e"></i> Đang tải nội dung...</div>
+      </div>
+    </article>
+  </main>
 
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mốc Doanh Thu Lũy Kế (Tháng)</th>
-                            <th>Nhóm PHI THUỐC (%)</th>
-                            <th>Nhóm THUỐC (%)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Từ 2.500.000 VNĐ</td>
-                            <td>2.0%</td>
-                            <td>1.5%</td>
-                        </tr>
-                        <tr>
-                            <td>Từ 16.000.000 VNĐ</td>
-                            <td>3.5%</td>
-                            <td>1.6%</td>
-                        </tr>
-                        <tr>
-                            <td>Từ 30.000.000 VNĐ</td>
-                            <td>4.5%</td>
-                            <td>2.0%</td>
-                        </tr>
-                        <tr>
-                            <td>Từ 70.000.000 VNĐ</td>
-                            <td><strong>6.0%</strong></td>
-                            <td><strong>3.0%</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            [<p style="font-size: 0.9rem; font-style: italic; text-align: right;">Nguồn dữ liệu: Bảng Tỷ Lệ Hoa Hồng </p>
+  <footer>
+    <div class="gold-line"></div>
+    <p><span class="brand-mini">IDECO</span> &nbsp;•&nbsp; © 2025 — Mọi quyền được bảo lưu</p>
+  </footer>
+</div>
 
-            <div class="alert-box" style="background-color: #e2e3e5; border-color: #383d41; color: #383d41;">
-                <strong>Lưu ý quan trọng:</strong>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                <li>Doanh số tính dựa trên nhân viên  lập đơn trên ERP có mã khách hàng do nhân viên đã khai thác ( cho phép cộng lũy tiến). [</li>
-                   <li>NVKD phải gửi báo cáo giải trình kèm mã khách hàng trước kỳ lương. </li>
-                    <li>Nộp trễ sẽ thanh toán vào kỳ công nợ nhà cung cấp. </li>
-                    <li>Biên độ thưởng cho nhóm không phải thuốc tối đa 300 triệu đồng và nhóm thuốc tối đa 450 triệu đồng để hưởng mức hoa hồng  </li>
-                </ul>
-            </div>
-        </section>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+    <h2>Quản Trị Viên</h2>
+    <p class="modal-subtitle">Vui lòng nhập mật khẩu để tiếp tục</p>
+    <input type="password" id="passwordInput" class="input-field" placeholder="••••••••••" autocomplete="off">
+    <p class="error-msg" id="errorMsg"></p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="cancelLoginBtn">Hủy</button>
+      <button class="btn btn-primary" id="loginBtn">Đăng nhập</button>
+    </div>
+  </div>
+</div>
 
-        <section id="support">
-            <h2>III. Thưởng Khối Hỗ Trợ (Kế toán - Kho - Giao nhận) </h2>
+<!-- ADMIN VIEW -->
+<div id="adminView" class="hidden">
+  <header class="admin-header">
+    <h1>
+      <span class="brand-name">IDECO</span>
+      <i class="fa-solid fa-feather-pointed" style="color:#e8c25f; font-size: 18px"></i>
+      Trang Quản <span class="gold-italic">Trị</span>
+    </h1>
+    <div class="actions">
+      <button class="admin-btn" id="viewSiteBtn"><i class="fa-solid fa-eye" style="margin-right:6px"></i>Xem trang chủ</button>
+      <button class="admin-btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket" style="margin-right:6px"></i>Đăng xuất</button>
+    </div>
+  </header>
 
-            <h3>1. Phụ trách Kho Dược (Hỗ trợ CSKH) </h3>
-            <ul>
-                <li><strong>Thưởng tăng trưởng doanh thu phụ trách xử lý đơn hàng (Kỳ này vs Kỳ trước):</strong>
-                    <ul>
-                        <li>Tăng 0% - 12%: Thưởng <span class="money"> thưởng : 300.000 đ</span></li>
-                        <li>Tăng từ 13% trở lên: Thưởng <span class="money"> thưởng : 600.000 đ</span></li>
-                        <li>Tăng từ 25% trở lên: Thưởng <span class="money"> thưởng : 1,000.000 đ</span></li>
-                    </ul>
-                </li>
-                 <li><strong>Thưởng hỗ trợ kiêm nhiệm - lập đơn khách hàng - theo dõi và điều phối đơn hàng đó thành công ( được người phụ trách chính đánh giá trình đề xuất) :</strong>
-                    <ul>
-                        <li> từ 1 đơn hàng - 10 đơn hàng <span class="money"> thưởng : 300.000 đ</span></li>
-                        <li> Từ 11 đơn hàng - 20 đơn hàng <span class="money"> thưởng : 600.000 đ</span></li>
-                        <li> Trên 20 đơn hàng <span class="money"> thưởng : 1,000.000 đ</span></li>
-                    </ul>
-                </li>
-               
-                
-                
-                
-                <li><strong>Thưởng hoàn thành đơn hàng:</strong>
-                    <ul>
-                        <li>Từ 151 - 170 đơn giao đúng hạn: <span class="money"> thưởng 30.000 đ/đơn</span> (tính từ đơn 151)</li>
-                        <li>Từ 171 đơn trở lên: <span class="money"> thưởng : 60.000 đ/đơn</span> (tính từ đơn 171)</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3>2.Bộ phận Giao Hàng [cite: 39]</h3>
-            <p>Căn cứ trên số liệu tổng đơn giao phát sinh hoàn thành đúng hạn:</p>
-            <ul>
-                <li>Từ 155 - 170 đơn: Thưởng <span class="money"> 40.000 đ/đơn</span> (tính cho các đơn vượt mức 154)</li>
-                <li>Từ 171 đơn trở lên: Thưởng <span class="money">60.000 đ/đơn</span></li>
-            </ul>
-
-            <h3>3. Bộ phận Kế Toán </h3>
-            <p>Dựa trên tỷ lệ lợi nhuận kế toán (trước thuế) / tổng doanh thu thuần:</p>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tỷ lệ lợi nhuận</th>
-                            <th>Cấp Quản Lý</th>
-                            <th>Cấp Kế Toán Viên</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Từ 6%</td>
-                            <td>300.000 đ</td>
-                            <td>200.000 đ</td>
-                        </tr>
-                        <tr>
-                            <td>Từ 8%</td>
-                            <td>500.000 đ</td>
-                            <td>300.000 đ</td>
-                        </tr>
-                        <tr>
-                            <td>Từ 14%</td>
-                            <td>800.000 đ</td>
-                            <td>500.000 đ</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>4.Hỗ trợ giao nhận (Nhân viên khác)</h3>
-            <p>Áp dụng cho nhân viên hỗ trợ giao hàng trực tiếp nội thành (đơn hàng giao thành công & thu đủ tiền):</p>
-            <ul class="grid-cards" style="list-style: none; margin-top: 10px;">
-                <li class="card" style="text-align: center;">
-                    <div class="card-title">Bán kính < 8km</div>
-                    <div class="card-reward">40.000 đ/ lần</div>
-                    <small>/đơn hàng</small>
-                </li>
-                <li class="card" style="text-align: center;">
-                    <div class="card-title">Bán kính < 15km</div>
-                    <div class="card-reward">60.000 đ /lần</div>
-                    <small>/đơn hàng</small>
-                </li>
-            </ul>
- <h4>5.Thưởng bộ phận kế toán hoàn thành tốt công tác Qúy </h4>
-            <p> Xem xét thưởng theo 2 khung tiêu chính thưởng cho team kế toán về nghiệp vụ tài chính - kế toán</p>
-            <ul class="grid-cards" style="list-style: none; margin-top: 10px;">
-                <li class="card" style="text-align: center;">
-                    <div class="card-title">Hoàn thành báo cáo sổ sách báo cáo thuế tốt - các biện pháp xử lý tài chính đã đề ra được triển khai theo đúng và báo cáo tốt</div>
-                    <div class="card-reward"> 20%</div>
-                    <small>/các nhân sự team kế toán</small>
-                </li>
-                <li class="card" style="text-align: center;">
-                    <div class="card-title"> Các chỉ tiêu tài chính đề cải thiện tăng : Lợi nhuận bình quân tăng - lãi vay không tăng quá hơn 5% kỳ trước - Thu hồi nợ tốt  </div>
-                    <div class="card-reward"> 20% đ</div>
-                    <small>/các nhân sự team kế toán</small>
-                </li>
-            </ul>
-        
-        
-        </section>
-
-        <section id="kpi">
-            <h2>IV.Quy Chế Tính Điểm KPI & Kỷ Luật </h2>
-            <p>Các lỗi vi phạm sau sẽ có thể  trừ trực tiếp vào điểm KPI tháng:</p>
-
-            <div class="table-responsive">
-                <table class="kpi-table">
-                    <thead>
-                        <tr>
-                            <th>Loại Vi Phạm</th>
-                            <th>Chi Tiết</th>
-                            <th>Mức Trừ Điểm KPI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Lỗi khai báo giao dịch hay bị nhắc đến 3 lần nhưng không hiệu chỉnh theo yêu cầu</strong></td>
-                            <td>Không khai báo/khai báo sai khi phát triển KH mới hay đợi nhắc điều chỉnh quá 3 lần mà không khắc phục.</td>
-                            <td>Trừ <strong>5%</strong> / lỗi nhắc / lần</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lỗi sai sót đơn hàng- nhầm chính sách </strong></td>
-                            <td>Sai chiết khấu, sản lượng ảnh hưởng dữ liệu ERP.</td>
-                            <td>Trừ <strong>8%</strong> / lỗi / lần</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lỗi quy trình & thủ tục thiếu ký nháy - thiếu văn bản - thiếu khai báo </strong></td>
-                            <td>Không tuân thủ quy trình KD, thiếu thủ tục.</td>
-                            <td>Trừ <strong>8%</strong> / lần nhắc</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lỗi lập kế hoạch - báo cáo  cuối kỳ</strong></td>
-                            <td>Nộp trễ hạn hoặc sai sót phải làm lại (trễ quá 3 ngày so với kỳ lương).</td>
-                            <td>Trừ <strong>10%</strong> tổng điểm KPI</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="note-box">
-                <strong>Lưu ý:</strong> Điều kiện nhận thưởng KPI là bắt buộc hoàn thành Báo cáo các chỉ số KPI. Nếu không có báo cáo, không xem xét đánh giá KPI.
-            </div>
-        </section>
-
+  <main class="admin-main">
+    <div class="admin-info">
+      <h3><i class="fa-solid fa-pen-to-square" style="color:#e30613; margin-right:8px"></i>Hướng dẫn soạn thảo</h3>
+      <p>
+        Đầy đủ công cụ định dạng: font chữ, kích thước, màu sắc, canh lề, danh sách, ký tự đặc biệt, biểu tượng cảm xúc, hình ảnh.<br>
+        <strong>Chèn bảng:</strong> Bấm icon <span class="tip"><i class="fa-solid fa-table"></i> Bảng</span> trên thanh công cụ → chọn số hàng × cột. Khi con trỏ ở trong bảng, thanh công cụ phụ hiện ra cho phép thêm/xóa hàng cột, gộp ô.<br>
+        <strong>Dán bảng từ Word/Excel:</strong> Copy bảng trong Word/Excel rồi dán <span class="tip">Ctrl + V</span> trực tiếp — hệ thống tự giữ nguyên cấu trúc hàng cột và nội dung.<br>
+        Sau khi hoàn thiện, bấm <strong>Lưu chính sách</strong> để công bố lên trang chủ.
+      </p>
     </div>
 
-    <footer>
-        <p>Quy chế này có hiệu lực từ ngày ký.</p>
-        <p><strong>DUYỆT LÃNH ĐẠO CÔNG TY</strong></p>
-        <div class="signature">Minh Triết</div>
-        <p style="margin-top: 20px; font-size: 0.8rem; color: #aaa;">Internal Document | Confidential</p>
-    </footer>
+    <div class="editor-container">
+      <div id="editor-loading-msg" class="editor-loading">
+        <i class="fa-solid fa-spinner fa-spin" style="color:#c9a96e; margin-right:8px"></i> Đang khởi tạo trình soạn thảo...
+      </div>
+      <textarea id="editor"></textarea>
+    </div>
 
+    <div class="admin-actions">
+      <button class="save-btn" id="saveBtn">
+        <i class="fa-solid fa-floppy-disk"></i>
+        Lưu chính sách
+      </button>
+      <span class="save-status" id="saveStatus"></span>
+    </div>
+  </main>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+<!-- TinyMCE (GPL, no API key required) -->
+<script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+// FIREBASE CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyA1RI7dON8yARmssHcV9rrPITdTEFpQLFc",
+  authDomain: "idecoserver.firebaseapp.com",
+  databaseURL: "https://idecoserver-default-rtdb.firebaseio.com",
+  projectId: "idecoserver",
+  storageBucket: "idecoserver.firebasestorage.app",
+  messagingSenderId: "1037959796693",
+  appId: "1:1037959796693:web:6f0192caf160e61f4e4f5c",
+  measurementId: "G-0H23RY45JT"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const policyRef = db.ref('policy');
+
+// UI REFS
+const publicView = document.getElementById('publicView');
+const adminView = document.getElementById('adminView');
+const loginModal = document.getElementById('loginModal');
+const passwordInput = document.getElementById('passwordInput');
+const errorMsg = document.getElementById('errorMsg');
+const contentDisplay = document.getElementById('contentDisplay');
+const policyMeta = document.getElementById('policyMeta');
+const saveStatus = document.getElementById('saveStatus');
+const editorLoadingMsg = document.getElementById('editor-loading-msg');
+
+const PASSWORD = 'minhtriet1973';
+
+let tinymceEditor = null;
+let editorInitialized = false;
+
+// TINYMCE INIT
+function initTinyMCE() {
+  if (editorInitialized) return;
+  editorInitialized = true;
+
+  tinymce.init({
+    selector: '#editor',
+    height: 620,
+    menubar: 'edit insert view format table',
+    license_key: 'gpl',
+    branding: false,
+    promotion: false,
+    plugins: [
+      'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
+      'searchreplace', 'visualblocks', 'visualchars', 'code',
+      'insertdatetime', 'media', 'table', 'wordcount', 'emoticons',
+      'anchor', 'preview', 'pagebreak'
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table | charmap emoticons hr | removeformat | searchreplace | preview code',
+    font_family_formats:
+      'Be Vietnam Pro=Be Vietnam Pro,sans-serif;' +
+      'Playfair Display=Playfair Display,serif;' +
+      'Cormorant Garamond=Cormorant Garamond,serif;' +
+      'Lora=Lora,serif;' +
+      'Merriweather=Merriweather,serif;' +
+      'Montserrat=Montserrat,sans-serif;' +
+      'Open Sans=Open Sans,sans-serif;' +
+      'Roboto=Roboto,sans-serif;' +
+      'Arial=Arial,Helvetica,sans-serif;' +
+      'Times New Roman=Times New Roman,Times,serif;' +
+      'Courier New=Courier New,Courier,monospace;' +
+      'Georgia=Georgia,serif;' +
+      'Verdana=Verdana,Geneva,sans-serif;' +
+      'Tahoma=Tahoma,sans-serif',
+    fontsize_formats: '10px 11px 12px 13px 14px 15px 16px 17px 18px 20px 22px 24px 28px 32px 36px 42px 48px 56px',
+    content_style:
+      "@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Lora&family=Merriweather&family=Montserrat&family=Open+Sans&family=Roboto&display=swap');" +
+      "body { font-family: 'Be Vietnam Pro', sans-serif; font-size: 16px; line-height: 1.75; padding: 32px 40px; color: #2a2a2a; }" +
+      "h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }" +
+      "h1:not([style*='color']), h2:not([style*='color']), h3:not([style*='color']), h4:not([style*='color']) { color: #0a1628; }" +
+      "strong { font-weight: 700; }" +
+      "table { border-collapse: collapse; width: 100%; margin: 16px 0; }" +
+      "table td, table th { border: 1px solid #c9a96e; padding: 10px 14px; }" +
+      "table th { font-family: 'Playfair Display', serif; }" +
+      "table th:not([style*='background']) { background: #0a1628; }" +
+      "table th:not([style*='color']) { color: #e8c25f; }" +
+      "blockquote { border-left: 4px solid #c9a96e; padding: 10px 20px; background: #faf6ec; font-style: italic; margin: 16px 0; }" +
+      "a:not([style*='color']) { color: #b8050f; }",
+    /* TABLE CONFIG */
+    table_default_attributes: { border: '1' },
+    table_default_styles: { 'border-collapse': 'collapse', 'width': '100%' },
+    table_class_list: [ { title: 'Mặc định', value: '' } ],
+    table_responsive_width: true,
+    table_appearance_options: true,
+    table_grid: true,
+    table_resize_bars: true,
+    table_advtab: true,
+    table_cell_advtab: true,
+    table_row_advtab: true,
+    table_toolbar: 'tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol | tablecellprops tablemergecells tablesplitcells',
+    /* PASTE CONFIG (Word, Excel) */
+    paste_data_images: true,
+    paste_as_text: false,
+    paste_merge_formats: true,
+    smart_paste: true,
+    paste_retain_style_properties: 'color background background-color font-size font-weight font-family font-style text-align text-decoration border border-color border-style border-width padding margin width height',
+    /* IMAGES */
+    image_advtab: true,
+    image_caption: true,
+    /* GENERAL */
+    convert_urls: false,
+    relative_urls: false,
+    /* Allow ALL elements + ALL attributes — critical for preserving inline color/style on save */
+    valid_elements: '*[*]',
+    extended_valid_elements: '*[*]',
+    valid_children: '+body[style],+h1[span],+h2[span],+h3[span],+h4[span]',
+    keep_styles: true,
+    forced_root_block: 'p',
+    entity_encoding: 'raw',
+    verify_html: false,
+    setup: (editor) => {
+      tinymceEditor = editor;
+      editor.on('init', () => {
+        if (editorLoadingMsg) editorLoadingMsg.style.display = 'none';
+        loadContentIntoEditor();
+      });
+    }
+  });
+}
+
+function loadContentIntoEditor() {
+  if (!tinymceEditor) return;
+  policyRef.once('value').then((snap) => {
+    const data = snap.val();
+    if (data && data.content) {
+      tinymceEditor.setContent(data.content);
+    }
+  }).catch((err) => {
+    console.error('Load error:', err);
+  });
+}
+
+// AUTH FLOW
+document.getElementById('openAdminBtn').addEventListener('click', () => {
+  loginModal.classList.remove('hidden');
+  passwordInput.value = '';
+  errorMsg.textContent = '';
+  setTimeout(() => passwordInput.focus(), 100);
+});
+
+document.getElementById('cancelLoginBtn').addEventListener('click', () => {
+  loginModal.classList.add('hidden');
+});
+
+passwordInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') document.getElementById('loginBtn').click();
+});
+
+document.getElementById('loginBtn').addEventListener('click', () => {
+  if (passwordInput.value === PASSWORD) {
+    loginModal.classList.add('hidden');
+    showAdmin();
+  } else {
+    errorMsg.textContent = 'Mật khẩu không đúng. Vui lòng thử lại.';
+    passwordInput.style.borderColor = '#c44545';
+    passwordInput.value = '';
+    setTimeout(() => { passwordInput.style.borderColor = ''; }, 1800);
+  }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', showPublic);
+document.getElementById('viewSiteBtn').addEventListener('click', showPublic);
+
+function showAdmin() {
+  publicView.classList.add('hidden');
+  adminView.classList.remove('hidden');
+  window.scrollTo(0, 0);
+  if (!editorInitialized) {
+    initTinyMCE();
+  } else {
+    loadContentIntoEditor();
+  }
+}
+
+function showPublic() {
+  adminView.classList.add('hidden');
+  publicView.classList.remove('hidden');
+  saveStatus.textContent = '';
+  saveStatus.className = 'save-status';
+  window.scrollTo(0, 0);
+}
+
+// SAVE TO FIREBASE
+document.getElementById('saveBtn').addEventListener('click', () => {
+  if (!tinymceEditor) {
+    saveStatus.textContent = '⚠ Trình soạn thảo chưa sẵn sàng.';
+    saveStatus.className = 'save-status error';
+    return;
+  }
+  const html = tinymceEditor.getContent();
+  const saveBtn = document.getElementById('saveBtn');
+  saveBtn.disabled = true;
+  saveStatus.textContent = '⏳ Đang lưu...';
+  saveStatus.className = 'save-status';
+
+  policyRef.set({
+    content: html,
+    lastUpdated: firebase.database.ServerValue.TIMESTAMP
+  })
+    .then(() => {
+      saveStatus.textContent = '✓ Đã lưu thành công! Trang chủ đã được cập nhật.';
+      saveStatus.className = 'save-status success';
+      setTimeout(() => {
+        saveStatus.textContent = '';
+        saveStatus.className = 'save-status';
+      }, 4000);
+    })
+    .catch((err) => {
+      saveStatus.textContent = '✗ Lỗi: ' + err.message;
+      saveStatus.className = 'save-status error';
+    })
+    .finally(() => {
+      saveBtn.disabled = false;
+    });
+});
+
+// REAL-TIME LISTENER (PUBLIC VIEW)
+policyRef.on('value', (snap) => {
+  const data = snap.val();
+  if (data && data.content && data.content.trim() !== '' && data.content !== '<p><br></p>') {
+    contentDisplay.innerHTML = data.content;
+    if (data.lastUpdated) {
+      const d = new Date(data.lastUpdated);
+      const dd = d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const tt = d.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+      policyMeta.innerHTML = `Cập nhật lần cuối: ${dd} • ${tt}`;
+    } else {
+      policyMeta.innerHTML = 'Văn bản chính sách';
+    }
+  } else {
+    contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-scroll"></i>Chưa có nội dung chính sách.<br>Vui lòng đăng nhập trang quản trị để cập nhật.</div>';
+    policyMeta.innerHTML = 'Văn bản chính sách';
+  }
+}, (err) => {
+  contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không thể tải dữ liệu.<br>Vui lòng kiểm tra cấu hình &amp; quy tắc bảo mật Firebase.</div>';
+  console.error('Firebase error:', err);
+});
+</script>
 </body>
 </html>
-
-
-
-
