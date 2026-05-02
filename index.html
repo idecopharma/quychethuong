@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chính Sách Thưởng Ngoài KPI</title>
+<title>Quy Định Thưởng & Định Hướng Làm Việc Công Ty</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,10 @@
   --brand-red: #e30613;
   --brand-red-bright: #ff2a3a;
   --brand-red-deep: #b8050f;
+  --orange: #ff7a1a;
+  --orange-bright: #ff9947;
+  --orange-deep: #d44a05;
+  --orange-shadow: rgba(232, 81, 0, 0.45);
   --cream: #faf6ec;
   --warm-white: #fdfbf5;
   --paper: #ffffff;
@@ -46,10 +50,11 @@ body {
 
 .hidden { display: none !important; }
 
-/* HERO */
+/* ========================================== */
+/* HERO – chung */
+/* ========================================== */
 .hero {
   position: relative;
-  min-height: 75vh;
   background: linear-gradient(135deg, var(--midnight) 0%, var(--navy) 50%, var(--midnight) 100%);
   color: var(--warm-white);
   overflow: hidden;
@@ -61,7 +66,7 @@ body {
   position: absolute; inset: 0;
   background-image:
     radial-gradient(circle at 15% 25%, rgba(232, 194, 95, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(227, 6, 19, 0.10) 0%, transparent 45%);
+    radial-gradient(circle at 85% 75%, rgba(255, 122, 26, 0.10) 0%, transparent 45%);
   pointer-events: none;
 }
 .hero::after {
@@ -71,6 +76,9 @@ body {
   pointer-events: none;
 }
 
+.hero-home    { min-height: 100vh; }
+.hero-compact { min-height: 50vh; }
+
 nav {
   position: relative; z-index: 10;
   padding: 24px 48px;
@@ -79,9 +87,7 @@ nav {
   align-items: center;
   border-bottom: 1px solid rgba(201, 169, 110, 0.18);
 }
-.brand {
-  display: flex; align-items: center;
-}
+.brand { display: flex; align-items: center; }
 .brand-name {
   color: var(--brand-red-bright);
   font-weight: 800;
@@ -106,7 +112,8 @@ nav {
   letter-spacing: 0.12em;
   font-weight: 500;
 }
-.nav-admin {
+.nav-actions { display: flex; gap: 12px; align-items: center; }
+.nav-admin, .nav-back {
   background: transparent;
   border: 1px solid var(--gold);
   color: var(--gold);
@@ -119,64 +126,167 @@ nav {
   transition: all 0.3s ease;
   font-weight: 500;
 }
-.nav-admin:hover { background: var(--gold); color: var(--midnight); letter-spacing: 0.2em; }
+.nav-admin:hover, .nav-back:hover { background: var(--gold); color: var(--midnight); letter-spacing: 0.2em; }
+.nav-back i { margin-right: 6px; }
 
-.hero-content {
+/* ========================================== */
+/* HOME – tiêu đề + 2 icon tròn cam lớn */
+/* ========================================== */
+.hero-content-home {
   flex: 1;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 80px 24px;
+  padding: 50px 24px 70px;
   position: relative;
   z-index: 5;
 }
-.ornament-top, .ornament-bottom {
-  width: 240px; height: 28px;
-  display: flex; align-items: center; justify-content: center;
-  margin: 12px 0;
-  opacity: 0;
-  animation: fadeUp 1.4s 0.1s forwards;
-}
-.ornament-top svg, .ornament-bottom svg { width: 100%; height: 100%; }
-
-.hero-eyebrow {
+.home-eyebrow {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 19px;
+  font-size: 17px;
   color: var(--gold-bright);
   letter-spacing: 0.25em;
-  margin: 4px 0;
+  margin-bottom: 14px;
   opacity: 0;
-  animation: fadeUp 1.2s 0.3s forwards;
+  animation: fadeUp 1.2s 0.2s forwards;
 }
-.hero-title {
+.home-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 6.5vw, 80px);
+  font-size: clamp(28px, 4.2vw, 50px);
   font-weight: 800;
   color: var(--warm-white);
   letter-spacing: 0.04em;
-  line-height: 1.05;
-  margin: 18px 0;
+  line-height: 1.15;
   text-transform: uppercase;
+  max-width: 1100px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  animation: fadeUp 1.2s 0.35s forwards;
+}
+.home-title .accent {
+  color: var(--gold-bright);
+  font-style: italic;
+  text-transform: none;
+  font-weight: 700;
+}
+.home-ornament {
+  width: 280px; height: 28px;
+  margin: 22px 0 4px;
   opacity: 0;
   animation: fadeUp 1.2s 0.5s forwards;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
-.hero-title .accent { color: var(--gold-bright); font-style: italic; text-transform: none; font-weight: 700; }
-.hero-subtitle {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: rgba(253, 251, 245, 0.78);
-  max-width: 640px;
-  letter-spacing: 0.06em;
-  margin-top: 14px;
+.home-ornament svg { width: 100%; height: 100%; }
+
+.section-icons {
+  display: flex;
+  gap: 70px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
-  animation: fadeUp 1.2s 0.7s forwards;
+  animation: fadeUp 1.4s 0.7s forwards;
+}
+
+.section-icon {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, var(--orange-bright), var(--orange) 45%, var(--orange-deep) 100%);
+  border: 6px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 25px 60px var(--orange-shadow),
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    inset 0 -8px 20px rgba(180, 60, 0, 0.3),
+    inset 0 8px 20px rgba(255, 200, 150, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(.16,.84,.44,1), box-shadow 0.45s ease;
+  text-align: center;
+  padding: 30px;
+  font-family: inherit;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  animation: iconFloat 5s ease-in-out infinite;
+}
+.section-icon:nth-child(2) { animation-delay: 1.5s; }
+.section-icon::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 18%;
+  width: 38%;
+  height: 22%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.55), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.section-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.3) 60deg, transparent 120deg, transparent 360deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.section-icon:hover {
+  transform: translateY(-14px) scale(1.06);
+  box-shadow:
+    0 38px 80px rgba(232, 81, 0, 0.6),
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    inset 0 -8px 20px rgba(180, 60, 0, 0.3),
+    inset 0 8px 20px rgba(255, 200, 150, 0.45);
+  animation-play-state: paused;
+}
+.section-icon:active {
+  transform: translateY(-6px) scale(1.02);
+}
+.section-icon i {
+  font-size: 60px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  position: relative;
+  z-index: 1;
+}
+.section-icon-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.home-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(253, 251, 245, 0.72);
+  margin-top: 50px;
+  max-width: 720px;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  animation: fadeUp 1.2s 1s forwards;
 }
 
 .hero-corner {
@@ -191,10 +301,95 @@ nav {
 .hero-corner.bl { bottom: 32px; left: 32px; border-right: none; border-top: none; }
 .hero-corner.br { bottom: 32px; right: 32px; border-left: none; border-top: none; }
 
+/* ========================================== */
+/* CONTENT VIEW – hero compact */
+/* ========================================== */
+.hero-content-compact {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 40px 24px 30px;
+  position: relative;
+  z-index: 5;
+}
+.hero-eyebrow-compact {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gold-bright);
+  letter-spacing: 0.22em;
+  margin-bottom: 6px;
+}
+.hero-title-section {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--warm-white);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  margin: 8px 0;
+}
+.hero-title-section i {
+  color: var(--orange-bright);
+  margin-right: 14px;
+  filter: drop-shadow(0 2px 8px rgba(255,122,26,0.5));
+}
+.hero-subtitle-section {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(253, 251, 245, 0.78);
+  max-width: 700px;
+  letter-spacing: 0.06em;
+  margin-top: 10px;
+}
+
+.section-tabs {
+  display: flex;
+  gap: 14px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.section-tab {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  color: rgba(253, 251, 245, 0.72);
+  padding: 11px 22px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+}
+.section-tab i { font-size: 14px; }
+.section-tab:hover {
+  border-color: var(--gold-bright);
+  color: var(--warm-white);
+  transform: translateY(-2px);
+}
+.section-tab.active {
+  background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
+  border-color: var(--orange);
+  color: white;
+  box-shadow: 0 8px 22px var(--orange-shadow);
+}
+
+/* ========================================== */
 /* CONTENT */
+/* ========================================== */
 .content-section {
   background: var(--cream);
-  padding: 90px 24px 110px;
+  padding: 70px 24px 110px;
   background-image: radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.06) 0%, transparent 50%);
 }
 
@@ -208,6 +403,7 @@ nav {
   border: 1px solid var(--border);
   border-top: 6px solid var(--brand-red);
 }
+.policy-paper.section-orientation { border-top-color: var(--orange); }
 .policy-paper::before {
   content: '';
   position: absolute; inset: 0;
@@ -255,7 +451,6 @@ nav {
   line-height: 1.3;
   font-weight: 700;
 }
-/* Default heading color — only when user hasn't set their own */
 .policy-content h1:not([style*="color"]),
 .policy-content h2:not([style*="color"]),
 .policy-content h3:not([style*="color"]),
@@ -280,7 +475,6 @@ nav {
 .policy-content a:not([style*="color"]) { color: var(--brand-red-deep); }
 .policy-content a { text-decoration: underline; }
 .policy-content img { max-width: 100%; height: auto; margin: 16px 0; border-radius: 4px; }
-/* Strong: keep bold but inherit color from parent (so colored spans containing <strong> work) */
 .policy-content strong { font-weight: 700; }
 .policy-content pre, .policy-content code {
   background: #f5f1e8;
@@ -444,7 +638,9 @@ footer .brand-mini {
   font-style: italic; min-height: 18px;
 }
 
+/* ========================================== */
 /* ADMIN VIEW */
+/* ========================================== */
 #adminView { min-height: 100vh; background: var(--cream); }
 
 .admin-header {
@@ -492,8 +688,58 @@ footer .brand-mini {
 .admin-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 24px 60px;
+  padding: 36px 24px 60px;
 }
+
+/* TABS QUẢN TRỊ – chuyển giữa Chính Sách & Định Hướng */
+.admin-section-tabs {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+  background: var(--paper);
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--orange);
+  box-shadow: 0 2px 8px var(--shadow);
+  flex-wrap: wrap;
+}
+.admin-section-tab {
+  flex: 1;
+  min-width: 240px;
+  padding: 14px 22px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  color: var(--text-soft);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.admin-section-tab i {
+  font-size: 18px;
+  color: var(--orange);
+  transition: color 0.3s ease;
+}
+.admin-section-tab:hover {
+  border-color: var(--orange);
+  color: var(--charcoal);
+  background: var(--paper);
+}
+.admin-section-tab.active {
+  background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
+  border-color: var(--orange-deep);
+  color: white;
+  box-shadow: 0 8px 20px var(--orange-shadow);
+}
+.admin-section-tab.active i { color: white; }
+
 .admin-info {
   background: var(--paper);
   padding: 24px 28px;
@@ -519,6 +765,11 @@ footer .brand-mini {
   margin: 0 3px;
   font-size: 13px;
   border: 1px solid #ffd9dc;
+}
+.admin-info .tip-orange {
+  background: #fff4e8;
+  color: var(--orange-deep);
+  border-color: #ffd9b5;
 }
 
 .editor-container {
@@ -578,27 +829,45 @@ footer .brand-mini {
 
 .tox-tinymce { border: none !important; }
 .tox .tox-toolbar__primary { background: var(--cream) !important; border-bottom: 1px solid var(--border) !important; }
-.tox-notifications-container { display: none !important; } /* Hide TinyMCE upgrade banner */
+.tox-notifications-container { display: none !important; }
 .tox-statusbar__branding { display: none !important; }
 
+/* ========================================== */
+/* RESPONSIVE */
+/* ========================================== */
 @media (max-width: 768px) {
-  nav { padding: 16px 20px; }
+  nav { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
   .brand-name { font-size: 18px; letter-spacing: 0.18em; }
   .brand-tail { font-size: 13px; }
   .brand-mark { margin: 0 10px; }
-  .nav-admin { padding: 7px 14px; font-size: 11px; }
-  .hero-content { padding: 50px 20px; }
+  .nav-admin, .nav-back { padding: 7px 14px; font-size: 11px; }
+
+  .hero-content-home { padding: 30px 16px 50px; }
+  .home-title { font-size: clamp(22px, 5.5vw, 30px); letter-spacing: 0.02em; }
   .hero-corner { display: none; }
-  .ornament-top, .ornament-bottom { width: 180px; }
-  .content-section { padding: 50px 16px 70px; }
-  .policy-paper { padding: 40px 24px 50px; }
-  .policy-paper::after { top: 12px; left: 12px; right: 12px; bottom: 12px; }
+  .home-ornament { width: 200px; }
+
+  .section-icons { gap: 30px; margin-top: 36px; }
+  .section-icon { width: 220px; height: 220px; padding: 22px; border-width: 5px; }
+  .section-icon i { font-size: 46px; margin-bottom: 12px; }
+  .section-icon-label { font-size: 13px; letter-spacing: 0.05em; }
+
+  .hero-content-compact { padding: 28px 16px 24px; }
+  .hero-title-section { font-size: clamp(22px, 5.5vw, 30px); }
+  .section-tab { padding: 9px 16px; font-size: 11px; }
+
+  .content-section { padding: 40px 14px 70px; }
+  .policy-paper { padding: 36px 22px 44px; }
+  .policy-paper::after { top: 10px; left: 10px; right: 10px; bottom: 10px; }
+
   .admin-header { padding: 20px 16px; flex-direction: column; gap: 16px; align-items: flex-start; }
   .admin-header h1 { font-size: 18px; }
   .admin-header h1 .brand-name { font-size: 18px; }
   .admin-header .actions { width: 100%; }
   .admin-btn { flex: 1; padding: 9px 12px; font-size: 11px; }
   .admin-main { padding: 20px 12px; }
+  .admin-section-tabs { flex-direction: column; }
+  .admin-section-tab { min-width: 0; padding: 12px 16px; font-size: 12px; }
   .admin-actions { flex-direction: column; align-items: stretch; }
   .save-btn { width: 100%; justify-content: center; padding: 14px 20px; }
   .modal-content { padding: 36px 24px; }
@@ -610,75 +879,134 @@ footer .brand-mini {
 </head>
 <body>
 
-<!-- PUBLIC VIEW -->
+<!-- ========================================== -->
+<!-- PUBLIC VIEW                                -->
+<!-- ========================================== -->
 <div id="publicView">
-  <header class="hero">
-    <span class="hero-corner tl"></span>
-    <span class="hero-corner tr"></span>
-    <span class="hero-corner bl"></span>
-    <span class="hero-corner br"></span>
 
-    <nav>
-      <div class="brand">
-        <span class="brand-name">IDECO</span>
-        <span class="brand-mark"></span>
-        <span class="brand-tail">Corporate</span>
+  <!-- TRANG CHỦ: Tiêu đề + 2 icon tròn cam -->
+  <div id="publicHome">
+    <header class="hero hero-home">
+      <span class="hero-corner tl"></span>
+      <span class="hero-corner tr"></span>
+      <span class="hero-corner bl"></span>
+      <span class="hero-corner br"></span>
+
+      <nav>
+        <div class="brand">
+          <span class="brand-name">IDECO</span>
+          <span class="brand-mark"></span>
+          <span class="brand-tail">Corporate</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-admin" id="openAdminBtn">
+            <i class="fa-solid fa-lock" style="margin-right:6px"></i> Quản trị
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero-content-home">
+        <p class="home-eyebrow">— IDECO • Văn Hóa Doanh Nghiệp —</p>
+
+        <h1 class="home-title">
+          Quy Định Thưởng <span class="accent">&amp;</span><br>
+          Định Hướng Làm Việc Công Ty
+        </h1>
+
+        <div class="home-ornament">
+          <svg viewBox="0 0 280 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="115" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+            <circle cx="125" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+            <path d="M 133 14 L 140 7 L 147 14 L 140 21 Z" fill="#e8c25f"/>
+            <circle cx="155" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+            <line x1="165" y1="14" x2="280" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
+          </svg>
+        </div>
+
+        <div class="section-icons">
+          <button class="section-icon" id="goToPolicyBtn" type="button" aria-label="Xem chính sách thưởng ngoài KPI">
+            <i class="fa-solid fa-trophy"></i>
+            <span class="section-icon-label">Chính Sách<br>Thưởng Ngoài KPI</span>
+          </button>
+          <button class="section-icon" id="goToOrientationBtn" type="button" aria-label="Xem định hướng làm việc cần nắm">
+            <i class="fa-solid fa-compass"></i>
+            <span class="section-icon-label">Định Hướng<br>Làm Việc Cần Nắm</span>
+          </button>
+        </div>
+
+        <p class="home-subtitle">
+          Bấm vào một biểu tượng để xem nội dung chi tiết.
+        </p>
       </div>
-      <button class="nav-admin" id="openAdminBtn">
-        <i class="fa-solid fa-lock" style="margin-right:6px"></i> Quản trị
-      </button>
-    </nav>
+    </header>
 
-    <div class="hero-content">
-      <div class="ornament-top">
-        <svg viewBox="0 0 240 28" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="14" x2="95" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
-          <circle cx="105" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
-          <path d="M 113 14 L 120 7 L 127 14 L 120 21 Z" fill="#e8c25f"/>
-          <circle cx="135" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
-          <line x1="145" y1="14" x2="240" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
-        </svg>
+    <footer>
+      <div class="gold-line"></div>
+      <p><span class="brand-mini">IDECO</span> &nbsp;•&nbsp; © 2025 — Mọi quyền được bảo lưu</p>
+    </footer>
+  </div>
+
+  <!-- TRANG NỘI DUNG: hiện chính sách hoặc định hướng -->
+  <div id="publicContent" class="hidden">
+    <header class="hero hero-compact">
+      <nav>
+        <div class="brand">
+          <span class="brand-name">IDECO</span>
+          <span class="brand-mark"></span>
+          <span class="brand-tail">Corporate</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-back" id="backToHomeBtn" type="button">
+            <i class="fa-solid fa-house"></i> Trang chủ
+          </button>
+          <button class="nav-admin" id="openAdminBtn2" type="button">
+            <i class="fa-solid fa-lock" style="margin-right:6px"></i> Quản trị
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero-content-compact">
+        <p class="hero-eyebrow-compact" id="sectionEyebrow">— IDECO Corporate —</p>
+        <h1 class="hero-title-section" id="sectionTitle">
+          <i class="fa-solid fa-trophy"></i> Chính Sách Thưởng Ngoài KPI
+        </h1>
+        <p class="hero-subtitle-section" id="sectionSubtitle">
+          Tôn vinh những đóng góp xuất sắc vượt ngoài chỉ tiêu, lan tỏa giá trị và động lực trong toàn thể đội ngũ.
+        </p>
+
+        <div class="section-tabs">
+          <button class="section-tab active" data-section="policy" type="button">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Chính Sách Thưởng Ngoài KPI</span>
+          </button>
+          <button class="section-tab" data-section="orientation" type="button">
+            <i class="fa-solid fa-compass"></i>
+            <span>Định Hướng Làm Việc Cần Nắm</span>
+          </button>
+        </div>
       </div>
+    </header>
 
-      <p class="hero-eyebrow">— Khen thưởng &amp; Ghi nhận —</p>
+    <main class="content-section">
+      <article class="policy-paper" id="policyPaper">
+        <div class="policy-meta" id="contentMeta">Văn bản chính sách</div>
+        <div class="policy-content" id="contentDisplay">
+          <div class="loading"><i class="fa-solid fa-spinner fa-spin" style="color:#c9a96e"></i> Đang tải nội dung...</div>
+        </div>
+      </article>
+    </main>
 
-      <h1 class="hero-title">
-        Chính Sách<br>
-        Thưởng <span class="accent">Ngoài</span> KPI
-      </h1>
+    <footer>
+      <div class="gold-line"></div>
+      <p><span class="brand-mini">IDECO</span> &nbsp;•&nbsp; © 2025 — Mọi quyền được bảo lưu</p>
+    </footer>
+  </div>
 
-      <p class="hero-subtitle">
-        Tôn vinh những đóng góp xuất sắc vượt ngoài chỉ tiêu, lan tỏa giá trị và động lực trong toàn thể đội ngũ.
-      </p>
-
-      <div class="ornament-bottom">
-        <svg viewBox="0 0 240 28" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="14" x2="95" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
-          <circle cx="105" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
-          <path d="M 113 14 L 120 7 L 127 14 L 120 21 Z" fill="#e8c25f"/>
-          <circle cx="135" cy="14" r="3.5" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
-          <line x1="145" y1="14" x2="240" y2="14" stroke="#c9a96e" stroke-width="0.8"/>
-        </svg>
-      </div>
-    </div>
-  </header>
-
-  <main class="content-section">
-    <article class="policy-paper">
-      <div class="policy-meta" id="policyMeta">Văn bản chính sách</div>
-      <div class="policy-content" id="contentDisplay">
-        <div class="loading"><i class="fa-solid fa-spinner fa-spin" style="color:#c9a96e"></i> Đang tải nội dung...</div>
-      </div>
-    </article>
-  </main>
-
-  <footer>
-    <div class="gold-line"></div>
-    <p><span class="brand-mini">IDECO</span> &nbsp;•&nbsp; © 2025 — Mọi quyền được bảo lưu</p>
-  </footer>
 </div>
 
-<!-- LOGIN MODAL -->
+<!-- ========================================== -->
+<!-- LOGIN MODAL                                -->
+<!-- ========================================== -->
 <div id="loginModal" class="modal hidden">
   <div class="modal-content">
     <div class="modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -693,7 +1021,9 @@ footer .brand-mini {
   </div>
 </div>
 
-<!-- ADMIN VIEW -->
+<!-- ========================================== -->
+<!-- ADMIN VIEW                                 -->
+<!-- ========================================== -->
 <div id="adminView" class="hidden">
   <header class="admin-header">
     <h1>
@@ -708,13 +1038,31 @@ footer .brand-mini {
   </header>
 
   <main class="admin-main">
+
+    <!-- TABS chuyển mục soạn thảo -->
+    <div class="admin-section-tabs">
+      <button class="admin-section-tab active" data-section="policy" type="button">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Chính Sách Thưởng Ngoài KPI</span>
+      </button>
+      <button class="admin-section-tab" data-section="orientation" type="button">
+        <i class="fa-solid fa-compass"></i>
+        <span>Định Hướng Làm Việc Cần Nắm</span>
+      </button>
+    </div>
+
     <div class="admin-info">
-      <h3><i class="fa-solid fa-pen-to-square" style="color:#e30613; margin-right:8px"></i>Hướng dẫn soạn thảo</h3>
+      <h3 id="adminSectionTitle">
+        <i class="fa-solid fa-pen-to-square" style="color:#e30613; margin-right:8px"></i>
+        Hướng dẫn soạn thảo
+      </h3>
       <p>
+        <span id="adminSectionHint" class="tip tip-orange">Đang soạn: Chính Sách Thưởng Ngoài KPI</span><br>
         Đầy đủ công cụ định dạng: font chữ, kích thước, màu sắc, canh lề, danh sách, ký tự đặc biệt, biểu tượng cảm xúc, hình ảnh.<br>
         <strong>Chèn bảng:</strong> Bấm icon <span class="tip"><i class="fa-solid fa-table"></i> Bảng</span> trên thanh công cụ → chọn số hàng × cột. Khi con trỏ ở trong bảng, thanh công cụ phụ hiện ra cho phép thêm/xóa hàng cột, gộp ô.<br>
         <strong>Dán bảng từ Word/Excel:</strong> Copy bảng trong Word/Excel rồi dán <span class="tip">Ctrl + V</span> trực tiếp — hệ thống tự giữ nguyên cấu trúc hàng cột và nội dung.<br>
-        Sau khi hoàn thiện, bấm <strong>Lưu chính sách</strong> để công bố lên trang chủ.
+        <strong>Chuyển mục:</strong> Bấm tab <span class="tip tip-orange"><i class="fa-solid fa-trophy"></i> Chính Sách</span> hoặc <span class="tip tip-orange"><i class="fa-solid fa-compass"></i> Định Hướng</span> phía trên để soạn từng phần riêng. Nhớ <strong>Lưu</strong> trước khi chuyển mục.<br>
+        Sau khi hoàn thiện, bấm <strong>Lưu</strong> để công bố lên trang chủ.
       </p>
     </div>
 
@@ -728,7 +1076,7 @@ footer .brand-mini {
     <div class="admin-actions">
       <button class="save-btn" id="saveBtn">
         <i class="fa-solid fa-floppy-disk"></i>
-        Lưu chính sách
+        <span id="saveBtnLabel">Lưu chính sách</span>
       </button>
       <span class="save-status" id="saveStatus"></span>
     </div>
@@ -743,7 +1091,9 @@ footer .brand-mini {
 <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
+// ============================================
 // FIREBASE CONFIG
+// ============================================
 const firebaseConfig = {
   apiKey: "AIzaSyA1RI7dON8yARmssHcV9rrPITdTEFpQLFc",
   authDomain: "idecoserver.firebaseapp.com",
@@ -757,17 +1107,51 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
-const policyRef = db.ref('policy');
+const policyRef      = db.ref('policy');       // Giữ nguyên dữ liệu cũ
+const orientationRef = db.ref('orientation');  // Nhánh mới cho Định Hướng
 
+// ============================================
+// CẤU HÌNH 2 MỤC
+// ============================================
+const SECTION_INFO = {
+  policy: {
+    key: 'policy',
+    ref: policyRef,
+    title: 'Chính Sách Thưởng Ngoài KPI',
+    subtitle: 'Tôn vinh những đóng góp xuất sắc vượt ngoài chỉ tiêu, lan tỏa giá trị và động lực trong toàn thể đội ngũ.',
+    icon: 'fa-trophy',
+    eyebrow: '— Khen Thưởng & Ghi Nhận —'
+  },
+  orientation: {
+    key: 'orientation',
+    ref: orientationRef,
+    title: 'Định Hướng Làm Việc Cần Nắm',
+    subtitle: 'Những kim chỉ nam cốt lõi giúp đội ngũ đồng hành cùng công ty trên hành trình phát triển bền vững.',
+    icon: 'fa-compass',
+    eyebrow: '— Văn Hóa & Tác Phong —'
+  }
+};
+
+// ============================================
 // UI REFS
-const publicView = document.getElementById('publicView');
-const adminView = document.getElementById('adminView');
-const loginModal = document.getElementById('loginModal');
+// ============================================
+const publicView    = document.getElementById('publicView');
+const publicHome    = document.getElementById('publicHome');
+const publicContent = document.getElementById('publicContent');
+const adminView     = document.getElementById('adminView');
+const loginModal    = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
-const errorMsg = document.getElementById('errorMsg');
+const errorMsg      = document.getElementById('errorMsg');
 const contentDisplay = document.getElementById('contentDisplay');
-const policyMeta = document.getElementById('policyMeta');
-const saveStatus = document.getElementById('saveStatus');
+const contentMeta    = document.getElementById('contentMeta');
+const policyPaper    = document.getElementById('policyPaper');
+const sectionEyebrow = document.getElementById('sectionEyebrow');
+const sectionTitle   = document.getElementById('sectionTitle');
+const sectionSubtitle= document.getElementById('sectionSubtitle');
+const adminSectionTitle = document.getElementById('adminSectionTitle');
+const adminSectionHint  = document.getElementById('adminSectionHint');
+const saveBtnLabel  = document.getElementById('saveBtnLabel');
+const saveStatus    = document.getElementById('saveStatus');
 const editorLoadingMsg = document.getElementById('editor-loading-msg');
 
 const PASSWORD = 'minhtriet1973';
@@ -775,7 +1159,15 @@ const PASSWORD = 'minhtriet1973';
 let tinymceEditor = null;
 let editorInitialized = false;
 
-// TINYMCE INIT
+// State
+let currentPublicSection = null;       // 'policy' | 'orientation' | null
+let currentAdminSection  = 'policy';   // mục đang soạn
+let cachedContent  = { policy: null, orientation: null };
+let firebaseLoaded = { policy: false, orientation: false };
+
+// ============================================
+// TINYMCE INIT (giống bản cũ – không đổi)
+// ============================================
 function initTinyMCE() {
   if (editorInitialized) return;
   editorInitialized = true;
@@ -847,7 +1239,6 @@ function initTinyMCE() {
     /* GENERAL */
     convert_urls: false,
     relative_urls: false,
-    /* Allow ALL elements + ALL attributes — critical for preserving inline color/style on save */
     valid_elements: '*[*]',
     extended_valid_elements: '*[*]',
     valid_children: '+body[style],+h1[span],+h2[span],+h3[span],+h4[span]',
@@ -867,23 +1258,132 @@ function initTinyMCE() {
 
 function loadContentIntoEditor() {
   if (!tinymceEditor) return;
-  policyRef.once('value').then((snap) => {
+  const ref = SECTION_INFO[currentAdminSection].ref;
+  ref.once('value').then((snap) => {
     const data = snap.val();
-    if (data && data.content) {
-      tinymceEditor.setContent(data.content);
-    }
+    tinymceEditor.setContent(data && data.content ? data.content : '');
+    if (typeof tinymceEditor.setDirty === 'function') tinymceEditor.setDirty(false);
   }).catch((err) => {
     console.error('Load error:', err);
   });
 }
 
+// ============================================
+// PUBLIC – NAVIGATION GIỮA HOME ↔ NỘI DUNG
+// ============================================
+document.getElementById('goToPolicyBtn').addEventListener('click', () => openContent('policy'));
+document.getElementById('goToOrientationBtn').addEventListener('click', () => openContent('orientation'));
+document.getElementById('backToHomeBtn').addEventListener('click', goHome);
+
+document.querySelectorAll('.section-tab').forEach(btn => {
+  btn.addEventListener('click', () => openContent(btn.dataset.section));
+});
+
+function openContent(section) {
+  if (!SECTION_INFO[section]) return;
+  currentPublicSection = section;
+  const info = SECTION_INFO[section];
+
+  publicHome.classList.add('hidden');
+  publicContent.classList.remove('hidden');
+
+  // Cập nhật tiêu đề + phụ đề
+  sectionEyebrow.textContent = info.eyebrow;
+  sectionTitle.innerHTML = `<i class="fa-solid ${info.icon}"></i> ${info.title}`;
+  sectionSubtitle.textContent = info.subtitle;
+
+  // Đổi màu viền giấy
+  if (section === 'orientation') {
+    policyPaper.classList.add('section-orientation');
+  } else {
+    policyPaper.classList.remove('section-orientation');
+  }
+
+  // Cập nhật tab active
+  document.querySelectorAll('.section-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.section === section);
+  });
+
+  // Render nội dung
+  renderPublicContent(section);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goHome() {
+  currentPublicSection = null;
+  publicContent.classList.add('hidden');
+  publicHome.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderPublicContent(section) {
+  const info = SECTION_INFO[section];
+
+  // Đang tải
+  if (!firebaseLoaded[section]) {
+    contentDisplay.innerHTML = '<div class="loading"><i class="fa-solid fa-spinner fa-spin" style="color:#c9a96e"></i> Đang tải nội dung...</div>';
+    contentMeta.innerHTML = info.title;
+    return;
+  }
+
+  const data = cachedContent[section];
+  if (data && data.content && data.content.trim() !== '' && data.content !== '<p><br></p>') {
+    contentDisplay.innerHTML = data.content;
+    if (data.lastUpdated) {
+      const d = new Date(data.lastUpdated);
+      const dd = d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const tt = d.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+      contentMeta.innerHTML = `Cập nhật lần cuối: ${dd} • ${tt}`;
+    } else {
+      contentMeta.innerHTML = info.title;
+    }
+  } else {
+    const emptyIcon = section === 'orientation' ? 'fa-compass' : 'fa-scroll';
+    contentDisplay.innerHTML = `<div class="empty-state"><i class="fa-solid ${emptyIcon}"></i>Chưa có nội dung.<br>Vui lòng đăng nhập trang quản trị để cập nhật.</div>`;
+    contentMeta.innerHTML = info.title;
+  }
+}
+
+// ============================================
+// FIREBASE LISTENERS – REAL-TIME
+// ============================================
+policyRef.on('value', (snap) => {
+  cachedContent.policy = snap.val();
+  firebaseLoaded.policy = true;
+  if (currentPublicSection === 'policy') renderPublicContent('policy');
+}, (err) => {
+  firebaseLoaded.policy = true;
+  console.error('Firebase policy error:', err);
+  if (currentPublicSection === 'policy') {
+    contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không thể tải dữ liệu.<br>Vui lòng kiểm tra cấu hình &amp; quy tắc bảo mật Firebase.</div>';
+  }
+});
+
+orientationRef.on('value', (snap) => {
+  cachedContent.orientation = snap.val();
+  firebaseLoaded.orientation = true;
+  if (currentPublicSection === 'orientation') renderPublicContent('orientation');
+}, (err) => {
+  firebaseLoaded.orientation = true;
+  console.error('Firebase orientation error:', err);
+  if (currentPublicSection === 'orientation') {
+    contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không thể tải dữ liệu.<br>Vui lòng kiểm tra cấu hình &amp; quy tắc bảo mật Firebase.</div>';
+  }
+});
+
+// ============================================
 // AUTH FLOW
-document.getElementById('openAdminBtn').addEventListener('click', () => {
+// ============================================
+function openAdminLogin() {
   loginModal.classList.remove('hidden');
   passwordInput.value = '';
   errorMsg.textContent = '';
   setTimeout(() => passwordInput.focus(), 100);
-});
+}
+
+document.getElementById('openAdminBtn').addEventListener('click', openAdminLogin);
+document.getElementById('openAdminBtn2').addEventListener('click', openAdminLogin);
 
 document.getElementById('cancelLoginBtn').addEventListener('click', () => {
   loginModal.classList.add('hidden');
@@ -912,6 +1412,8 @@ function showAdmin() {
   publicView.classList.add('hidden');
   adminView.classList.remove('hidden');
   window.scrollTo(0, 0);
+  // Cập nhật giao diện admin theo mục đang chọn
+  applyAdminSectionUI();
   if (!editorInitialized) {
     initTinyMCE();
   } else {
@@ -927,7 +1429,55 @@ function showPublic() {
   window.scrollTo(0, 0);
 }
 
+// ============================================
+// ADMIN – TABS chuyển mục soạn thảo
+// ============================================
+document.querySelectorAll('.admin-section-tab').forEach(btn => {
+  btn.addEventListener('click', () => switchAdminSection(btn.dataset.section));
+});
+
+function switchAdminSection(section) {
+  if (currentAdminSection === section) return;
+  if (!SECTION_INFO[section]) return;
+
+  // Cảnh báo nếu có thay đổi chưa lưu
+  if (tinymceEditor && typeof tinymceEditor.isDirty === 'function' && tinymceEditor.isDirty()) {
+    const ok = confirm('Bạn có thay đổi chưa lưu ở mục hiện tại. Chuyển mục sẽ làm mất các thay đổi này. Tiếp tục?');
+    if (!ok) return;
+  }
+
+  currentAdminSection = section;
+  applyAdminSectionUI();
+
+  // Tải lại nội dung của mục mới
+  if (tinymceEditor) {
+    loadContentIntoEditor();
+  }
+
+  // Reset trạng thái lưu
+  saveStatus.textContent = '';
+  saveStatus.className = 'save-status';
+}
+
+function applyAdminSectionUI() {
+  const info = SECTION_INFO[currentAdminSection];
+
+  // Tab active
+  document.querySelectorAll('.admin-section-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.section === currentAdminSection);
+  });
+
+  // Tiêu đề khu hướng dẫn
+  adminSectionTitle.innerHTML = `<i class="fa-solid ${info.icon}" style="color:#e30613; margin-right:8px"></i>Hướng dẫn soạn thảo`;
+  adminSectionHint.innerHTML = `Đang soạn: <strong>${info.title}</strong>`;
+
+  // Nhãn nút lưu
+  saveBtnLabel.textContent = 'Lưu ' + info.title;
+}
+
+// ============================================
 // SAVE TO FIREBASE
+// ============================================
 document.getElementById('saveBtn').addEventListener('click', () => {
   if (!tinymceEditor) {
     saveStatus.textContent = '⚠ Trình soạn thảo chưa sẵn sàng.';
@@ -936,21 +1486,25 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   }
   const html = tinymceEditor.getContent();
   const saveBtn = document.getElementById('saveBtn');
+  const info = SECTION_INFO[currentAdminSection];
+  const ref = info.ref;
+
   saveBtn.disabled = true;
   saveStatus.textContent = '⏳ Đang lưu...';
   saveStatus.className = 'save-status';
 
-  policyRef.set({
+  ref.set({
     content: html,
     lastUpdated: firebase.database.ServerValue.TIMESTAMP
   })
     .then(() => {
-      saveStatus.textContent = '✓ Đã lưu thành công! Trang chủ đã được cập nhật.';
+      saveStatus.textContent = `✓ Đã lưu thành công! "${info.title}" đã được cập nhật.`;
       saveStatus.className = 'save-status success';
+      if (typeof tinymceEditor.setDirty === 'function') tinymceEditor.setDirty(false);
       setTimeout(() => {
         saveStatus.textContent = '';
         saveStatus.className = 'save-status';
-      }, 4000);
+      }, 4500);
     })
     .catch((err) => {
       saveStatus.textContent = '✗ Lỗi: ' + err.message;
@@ -959,28 +1513,6 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     .finally(() => {
       saveBtn.disabled = false;
     });
-});
-
-// REAL-TIME LISTENER (PUBLIC VIEW)
-policyRef.on('value', (snap) => {
-  const data = snap.val();
-  if (data && data.content && data.content.trim() !== '' && data.content !== '<p><br></p>') {
-    contentDisplay.innerHTML = data.content;
-    if (data.lastUpdated) {
-      const d = new Date(data.lastUpdated);
-      const dd = d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-      const tt = d.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
-      policyMeta.innerHTML = `Cập nhật lần cuối: ${dd} • ${tt}`;
-    } else {
-      policyMeta.innerHTML = 'Văn bản chính sách';
-    }
-  } else {
-    contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-scroll"></i>Chưa có nội dung chính sách.<br>Vui lòng đăng nhập trang quản trị để cập nhật.</div>';
-    policyMeta.innerHTML = 'Văn bản chính sách';
-  }
-}, (err) => {
-  contentDisplay.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không thể tải dữ liệu.<br>Vui lòng kiểm tra cấu hình &amp; quy tắc bảo mật Firebase.</div>';
-  console.error('Firebase error:', err);
 });
 </script>
 </body>
